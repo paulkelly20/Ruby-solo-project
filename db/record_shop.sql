@@ -2,21 +2,23 @@ DROP TABLE albums ;
 DROP TABLE artists ;
 
 
-CREATE TABLE artists {
+CREATE TABLE artists (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(255)
+  name VARCHAR(255),
+  type VARCHAR(255),
+  about TEXT
+);
 
-}
 
-CREATE TABLE albums {
+
+CREATE TABLE albums (
   id SERIAL PRIMARY KEY,
   title VARCHAR(255),
-  review INT,
+  year VARCHAR(255),
+  artist_id INT REFERENCES artists(id) ON DELETE CASCADE,
+  review VARCHAR(255),
+  stock_level VARCHAR(255),
+  cost_price INT,
+  price INT
 
-}
-
-CREATE TABLE stocks {
-  id SERIAL PRIMARY KEY,
-  album_id id REFRENCES albums(id),
-  origins VARCHAR(255)
-}
+);
