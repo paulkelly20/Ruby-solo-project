@@ -6,7 +6,7 @@ class AlbumTest < MiniTest::Test
 
   def setup()
     @album1 = Album.new({"title" => "Whats the story morning glory",  "year" => "1998", "review" => "4 stars", "stock_level" => 4, "cost_price" => 5, "price" => 9})
-
+    @album2 = Album.new({"title" => "Parklife",  "year" => "1998", "review" => "4 stars", "stock_level" => 12, "cost_price" => 5, "price" => 9})
   end
 
   def test_album()
@@ -18,5 +18,12 @@ class AlbumTest < MiniTest::Test
     assert_equal(9, @album1.price)
   end
 
+  def test_stock_level()
+    assert_equal("Low", @album1.album_stock_level)
+    assert_equal("High", @album2.album_stock_level)
+  end
+
+  # def test_total_stock_value()
+  #   assert_equal(17)
 
 end
