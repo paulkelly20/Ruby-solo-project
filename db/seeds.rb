@@ -24,8 +24,8 @@ album1 = Album.new({
     "year" => "1998",
     "review" => "4 stars",
     "stock_level" => 4,
-    "cost_price" => 5,
-    "price" => 9})
+    "cost_price" => 7,
+    "price" => 12})
 
 album1.save()
 

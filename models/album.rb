@@ -74,9 +74,9 @@ class Album
   end
 
   def self.total_stock_value()
-    sql = "SELECT SUM (albums.cost_price) FROM albums;"
+    sql = "SELECT SUM (stock_level * cost_price) AS stockvalue FROM albums;"
     result = SqlRunner.run(sql)
-    return result[0]["sum"].to_i
+    return result[0]["stockvalue"].to_i
   end
 
 end

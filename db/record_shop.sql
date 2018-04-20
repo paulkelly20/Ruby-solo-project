@@ -17,7 +17,7 @@ CREATE TABLE albums (
   year VARCHAR(255),
   artist_id INT REFERENCES artists(id) ON DELETE CASCADE,
   review VARCHAR(255),
-  stock_level VARCHAR(255),
+  stock_level INT,
   cost_price INT,
   price INT
 
