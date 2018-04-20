@@ -1,11 +1,11 @@
 DROP TABLE albums ;
 DROP TABLE artists ;
--- DROP TABLE genres ;
+
 
 CREATE TABLE artists {
   id SERIAL PRIMARY KEY,
   name VARCHAR(255)
-  -- genre id REFRENCES genre(id)
+
 }
 
 CREATE TABLE albums {
@@ -15,8 +15,8 @@ CREATE TABLE albums {
 
 }
 
-CREATE TABLE genre {
+CREATE TABLE stocks {
   id SERIAL PRIMARY KEY,
-  type VARCHAR(255),
+  album_id id REFRENCES albums(id),
   origins VARCHAR(255)
 }
