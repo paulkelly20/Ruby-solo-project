@@ -3,7 +3,7 @@ require_relative( '../db/sqlrunner.rb' )
 class Album
 
   attr_reader :id
-  attr_accessor :title, :artist_id, :year, :review, :stock_level, :price, :cost_price, :image
+  attr_accessor :title, :artist_id, :year, :review, :stock_level, :price, :cost_price, :genre_id, :image
 
   def initialize(options)
     @title = options["title"]
@@ -13,12 +13,13 @@ class Album
     @stock_level = options["stock_level"].to_i
     @cost_price = options["cost_price"].to_i
     @price = options["price"].to_i
+    @genre_id = options["genre_id"]
     @image = options["image"]
   end
 
   def save
-    sql = "INSERT INTO albums (title, artist_id, year, review, stock_level, cost_price, price, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id;"
-    values = [@title, @artist_id, @year, @review, @stock_level, @cost_price, @price, @image]
+    sql = "INSERT INTO albums (title, artist_id, year, review, stock_level, cost_price, price, genre_id, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id;"
+    values = [@title, @artist_id, @year, @review, @stock_level, @cost_price, @price, @genre_id, @image]
     result = SqlRunner.run(sql, values)
     @id = result.first["id"].to_i
   end
@@ -53,8 +54,8 @@ class Album
   end
 
   def update()
-   sql = "UPDATE albums SET (title, artist_id, year, review, stock_level, cost_price, price, image) = ($1, $2, $3, $4, $5, $6, $7, $8) WHERE id = $9"
-   values = [@title, @artist_id, @year, @review, @stock_level, @cost_price, @price, @image, @id]
+   sql = "UPDATE albums SET (title, artist_id, year, review, stock_level, cost_price, price, image) = ($1, $2, $3, $4, $5, $6, $7, $8, $9) WHERE id = $10"
+   values = [@title, @artist_id, @year, @review, @stock_level, @cost_price, @price, @genre_id, @image, @id]
    SqlRunner.run(sql, values)
  end
 
@@ -80,4 +81,10 @@ class Album
     return result[0]["stockvalue"].to_i
   end
 
+  def album_markup()
+    sql = "SELECT SUM (price - cost_price) AS markup FROM albums WHERE id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return result[0]["markup"].to_i
+  end
 end

@@ -1,13 +1,13 @@
 
 
 body {
-  background: white url('/images/blur.jpg');
+  background: blue ;
   background-size: 100%;
   margin: 0
 }
 
 .banner {
-  background: white url('images/images.png');
+  background: white url('blur/images.png');
 
   height: 90px;
   display: flex;

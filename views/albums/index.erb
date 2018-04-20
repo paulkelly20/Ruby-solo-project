@@ -1,13 +1,25 @@
 <h2>This is a List of Albums</h2>
+<table>
+<tr>
+<th>Title </th>
+<th>Band </th>
+<th>Year </th>
+<th>Stock Level</th>
+<th>Cost Price</th>
+<th>Price </th>
+<tr/>
+
+<tr>
 <% @albums.each do |album| %>
-<p>Title: <%= album.title %></p>
-<p>Band: <%= album.find_album_artist_from_id.name%></p>
-<p>Year: <%= album.year %></p>
-<p>review: <%= album.review %></p>
-<p>Stock Level: <%= album.stock_level %> <%=album.album_stock_level%></p>
-<p>Cost Price: <%= album.cost_price %></p>
-<p>Price: <%= album.price %></p>
-<p>Stock: <%= album.price %></p>
-<p><img src="<%= album.image %>" alt="album cover"></p>
-<hr/>
+<td><%= album.title %><td/>
+<td><%= album.find_album_artist_from_id.name %></td>
+<td><%= album.year %><td/>
+<td><%= album.stock_level %></td>
+ <td><%= album.cost_price %></td>
+<td><%= album.price %></td>
+
 <% end %>
+</tr>
+
+
+</table>
