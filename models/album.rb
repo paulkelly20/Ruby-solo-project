@@ -3,7 +3,7 @@ require_relative( '../db/sqlrunner.rb' )
 class Album
 
   attr_reader :id
-  attr_accessor :title, :artist_id, :year, :review, :stock_level, :price, :cost_price
+  attr_accessor :title, :artist_id, :year, :review, :stock_level, :price, :cost_price, :image
 
   def initialize(options)
     @title = options["title"]
@@ -13,16 +13,17 @@ class Album
     @stock_level = options["stock_level"].to_i
     @cost_price = options["cost_price"].to_i
     @price = options["price"].to_i
+    @image = options["image"]
   end
 
   def save
-    sql = "INSERT INTO albums (title, artist_id, year, review, stock_level, cost_price, price) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id;"
-    values = [@title, @artist_id, @year, @review, @stock_level, @cost_price, @price]
+    sql = "INSERT INTO albums (title, artist_id, year, review, stock_level, cost_price, price, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id;"
+    values = [@title, @artist_id, @year, @review, @stock_level, @cost_price, @price, @image]
     result = SqlRunner.run(sql, values)
     @id = result.first["id"].to_i
   end
 
-  def self.find()
+  def self.all()
     sql = "SELECT * FROM albums"
     result = SqlRunner.run(sql)
     return Album.map_albums(result)
@@ -48,12 +49,12 @@ class Album
     sql = "SELECT * FROM artists INNER JOIN albums ON artists.id = albums.artist_id WHERE artists.id = $1"
     values = [@artist_id]
     result = SqlRunner.run(sql,values)
-    return Artist.map_artists(result)
+    return Artist.map_artists(result)[0]
   end
 
   def update()
-   sql = "UPDATE albums SET (title, artist_id, year, review, stock_level, cost_price, price) = ($1, $2, $3, $4, $5, $6, $7) WHERE id = $8"
-   values = [@title, @artist_id, @year, @review, @stock_level, @cost_price, @price, @id]
+   sql = "UPDATE albums SET (title, artist_id, year, review, stock_level, cost_price, price, image) = ($1, $2, $3, $4, $5, $6, $7, $8) WHERE id = $9"
+   values = [@title, @artist_id, @year, @review, @stock_level, @cost_price, @price, @image, @id]
    SqlRunner.run(sql, values)
  end
 

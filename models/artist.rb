@@ -3,30 +3,31 @@ require_relative( '../db/sqlrunner' )
 class Artist
 
   attr_reader :id
-  attr_accessor :name, :type, :about
+  attr_accessor :name, :type, :about, :image
 
   def initialize(options)
     @name = options["name"]
     @type = options["type"]
     @about = options["about"]
+    @image = options["image"]
   end
 
   def save()
-    sql = "INSERT INTO artists(name, type, about) VALUES ($1, $2, $3) returning id"
-    values = [@name, @type, @about]
+    sql = "INSERT INTO artists(name, type, about, image) VALUES ($1, $2, $3, $4) returning id"
+    values = [@name, @type, @about, @image]
     result = SqlRunner.run(sql, values)
      @id = result.first()["id"].to_i
   end
 
-  def self.find()
+  def self.all()
     sql = "SELECT * FROM artists"
     result = SqlRunner.run(sql)
     return Artist.map_artists(result)
   end
 
   def update()
-   sql = "UPDATE artists SET (name, type, about) = ($1, $2, $3) WHERE id = $4"
-   values = [@name, @type, @about, @id]
+   sql = "UPDATE artists SET (name, type, about, image) = ($1, $2, $3, $4) WHERE id = $5"
+   values = [@name, @type, @about, @image, @id]
    SqlRunner.run(sql, values)
  end
 

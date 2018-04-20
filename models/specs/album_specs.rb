@@ -23,7 +23,5 @@ class AlbumTest < MiniTest::Test
     assert_equal("High", @album2.album_stock_level)
   end
 
-  # def test_total_stock_value()
-  #   assert_equal(17)
 
 end

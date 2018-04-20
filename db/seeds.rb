@@ -8,14 +8,16 @@ Artist.delete_all
 artist1 =  Artist.new({
   "name" => "Oasis",
   "type" => "Band",
-  "about" => "90's Rock band from Manchester"})
+  "about" => "90's Rock band from Manchester",
+   "image" => "http://www.clashmusic.com/sites/default/files/styles/article_feature/public/legacy/files/oasis3_24.jpg?itok=lR7Vg1ZH"})
 
 artist1.save()
 
 artist2 =  Artist.new({
   "name" => "Blur",
   "type" => "Band",
-  "about" => "90's Indie band from London"})
+  "about" => "90's Indie band from London",
+  "image" => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvgFxLSpIoNuE_1oVX-3djhhwRK-VomIf0UUJ-ZzA1aXQFUyTyDA"})
 artist2.save()
 
 album1 = Album.new({
@@ -25,7 +27,8 @@ album1 = Album.new({
     "review" => "4 stars",
     "stock_level" => 4,
     "cost_price" => 7,
-    "price" => 12})
+    "price" => 12,
+     "image" => "https://upload.wikimedia.org/wikipedia/en/b/b1/Oasis_-_%28What%27s_The_Story%29_Morning_Glory_album_cover.jpg"})
 
 album1.save()
 
@@ -37,7 +40,8 @@ album2 = Album.new({
    "review" => "4 stars",
     "stock_level" => 12,
      "cost_price" => 5,
-     "price" => 9})
+     "price" => 9,
+     "image" => "https://upload.wikimedia.org/wikipedia/en/7/7d/BlurParklife.jpg"})
 album2.save()
 
 binding.pry()

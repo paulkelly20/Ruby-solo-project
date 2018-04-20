@@ -1,0 +1,7 @@
+<% @artists.each do |artist| %>
+<p>Name: <%= artist.name %></p>
+<p>Type: <%= artist.type %></p>
+<p>About: <%= artist.about %></p>
+<p><img src="<%= artist.image %>" alt="band image"></p>
+<hr/>
+<% end %>

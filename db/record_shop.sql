@@ -6,7 +6,8 @@ CREATE TABLE artists (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
   type VARCHAR(255),
-  about TEXT
+  about TEXT,
+  image VARCHAR(255)
 );
 
 
@@ -19,6 +20,6 @@ CREATE TABLE albums (
   review VARCHAR(255),
   stock_level INT,
   cost_price INT,
-  price INT
-
+  price INT,
+  image VARCHAR(255)
 );
