@@ -1,12 +1,8 @@
-<% @albums.each do |album| %>
-<p>Title: <%= album.title %></p>
-<p>Band: <%= album.find_album_artist_from_id.name%></p>
-<p>Year: <%= album.year %></p>
-<p>review: <%= album.review %></p>
-<p>Stock Level: <%= album.stock_level %> <%=album.album_stock_level%></p>
-<p>Cost Price: <%= album.cost_price %></p>
-<p>Price: <%= album.price %></p>
-<p>Stock: <%= album.price %></p>
-<p><img src="<%= album.image %>" alt="album cover"></p>
-<hr/>
-<% end %>
+<p><img class = "albumphotos" src="<%= @album.image %>" alt="album cover"></p>
+<p>Title: <%= @album.title %></p>
+<p>Band: <%= @album.find_album_artist_from_id.name%></p>
+<p>Genre: <%= @album.find_album_genre_from_id.name%></p>
+<p>Year: <%= @album.year %></p>
+<p>review: <%= @album.review %></p>
+<p>Stock Level: <%= @album.stock_level %> <%=@album.album_stock_level%></p>
+<p>Price: <%= @album.price %></p>

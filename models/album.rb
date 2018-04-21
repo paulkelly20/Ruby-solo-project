@@ -6,6 +6,7 @@ class Album
   attr_accessor :title, :artist_id, :year, :review, :stock_level, :price, :cost_price, :genre_id, :image
 
   def initialize(options)
+    @id = options["id"].to_i
     @title = options["title"]
     @artist_id = options["artist_id"]
     @year = options["year"]
@@ -39,11 +40,12 @@ class Album
     end
   end
 
-  def find_by_id
+  def self.find(id)
     sql = "SELECT * FROM albums WHERE id = $1"
-    values = [@id]
-    result = SqlRunner.run(sql,values)
-    return Artist.map_albums(result)
+    values = [id]
+    album = SqlRunner.run(sql,values)
+    result = Album.new(album.first)
+    return result
   end
 
   def find_album_artist_from_id
@@ -53,11 +55,18 @@ class Album
     return Artist.map_artists(result)[0]
   end
 
+  def find_album_genre_from_id
+    sql = "SELECT * FROM genres WHERE id = $1"
+    values = [@genre_id]
+    result = SqlRunner.run(sql,values)
+    return Genre.map_genres(result)[0]
+  end
+
   def update()
-   sql = "UPDATE albums SET (title, artist_id, year, review, stock_level, cost_price, price, image) = ($1, $2, $3, $4, $5, $6, $7, $8, $9) WHERE id = $10"
-   values = [@title, @artist_id, @year, @review, @stock_level, @cost_price, @price, @genre_id, @image, @id]
-   SqlRunner.run(sql, values)
- end
+    sql = "UPDATE albums SET (title, artist_id, year, review, stock_level, cost_price, price, image) = ($1, $2, $3, $4, $5, $6, $7, $8, $9) WHERE id = $10"
+    values = [@title, @artist_id, @year, @review, @stock_level, @cost_price, @price, @genre_id, @image, @id]
+    SqlRunner.run(sql, values)
+  end
 
 
   def self.delete_all()
@@ -87,4 +96,5 @@ class Album
     result = SqlRunner.run(sql, values)
     return result[0]["markup"].to_i
   end
+
 end

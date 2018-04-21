@@ -6,17 +6,18 @@ class Artist
   attr_accessor :name, :type, :about, :image
 
   def initialize(options)
+    @id = options["id"].to_i
     @name = options["name"]
     @type = options["type"]
     @about = options["about"]
     @image = options["image"]
   end
-
+  
   def save()
     sql = "INSERT INTO artists(name, type, about, image) VALUES ($1, $2, $3, $4) returning id"
     values = [@name, @type, @about, @image]
     result = SqlRunner.run(sql, values)
-     @id = result.first()["id"].to_i
+    @id = result.first()["id"].to_i
   end
 
   def self.all()
@@ -26,16 +27,17 @@ class Artist
   end
 
   def update()
-   sql = "UPDATE artists SET (name, type, about, image) = ($1, $2, $3, $4) WHERE id = $5"
-   values = [@name, @type, @about, @image, @id]
-   SqlRunner.run(sql, values)
- end
+    sql = "UPDATE artists SET (name, type, about, image) = ($1, $2, $3, $4) WHERE id = $5"
+    values = [@name, @type, @about, @image, @id]
+    SqlRunner.run(sql, values)
+  end
 
-  def find_by_id
+  def self.find(id)
     sql = "SELECT * FROM artists WHERE id = $1"
-    values = [@id]
-    result = SqlRunner.run(sql,values)
-    return Artist.map_artists(result)
+    values = [id]
+    artist = SqlRunner.run(sql,values)
+    result = Artist.new(artist.first)
+    return result
   end
 
   def delete_by_id()
@@ -53,7 +55,5 @@ class Artist
   def self.map_artists(artists)
     artists.map {|artist| Artist.new(artist)}
   end
-
-
 
 end
