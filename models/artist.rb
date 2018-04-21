@@ -12,7 +12,7 @@ class Artist
     @about = options["about"]
     @image = options["image"]
   end
-  
+
   def save()
     sql = "INSERT INTO artists(name, type, about, image) VALUES ($1, $2, $3, $4) returning id"
     values = [@name, @type, @about, @image]
@@ -50,6 +50,13 @@ class Artist
   def self.delete_all()
     sql = "DELETE FROM artists"
     SqlRunner.run(sql)
+  end
+
+  def self.keyword_search(word)
+    sql = "SELECT artists.* FROM artists WHERE name LIKE $1;"
+    values = ['%word%']
+    result = SqlRunner.run(sql)
+    return Artist.map_artists(result)
   end
 
   def self.map_artists(artists)

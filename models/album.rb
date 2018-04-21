@@ -97,4 +97,7 @@ class Album
     return result[0]["markup"].to_i
   end
 
+
+
+
 end

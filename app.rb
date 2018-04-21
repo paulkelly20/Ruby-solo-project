@@ -7,3 +7,7 @@ require_relative('controllers/genre_controller')
 get "/" do
  erb (:index)
 end
+
+get "/results" do
+  erb (:results)
+end
