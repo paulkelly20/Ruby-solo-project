@@ -12,7 +12,7 @@
 <% @albums.each do |album| %>
 <tr>
 <td><a href="/albums/<%= album.id %>"><%= album.title %></a></td>
-<td><%= album.find_album_artist_from_id.name %></td>
+<td><a href="/artists/<%= album.artist_id %>"><%= album.find_album_artist_from_id.name %></td>
 <td><%= album.year %></td>
 <td><%= album.stock_level %></td>
  <td>£<%= album.cost_price %></td>

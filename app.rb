@@ -9,7 +9,7 @@ get "/" do
  erb (:index)
 end
 
-post "/results/:word" do
+get "/results" do
   @artist = Artist.keyword_search(params[:id])
   erb (:results)
 end
