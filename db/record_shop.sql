@@ -23,11 +23,11 @@ CREATE TABLE albums (
   id SERIAL PRIMARY KEY,
   title VARCHAR(255),
   year VARCHAR(255),
-  artist_id INT REFERENCES artists(id) ,
+  artist_id INT REFERENCES artists(id) ON DELETE CASCADE,
   review VARCHAR(255),
   stock_level INT,
   cost_price INT,
   price INT,
-  genre_id INT REFERENCES genres(id) ,
+  genre_id INT REFERENCES genres(id) ON DELETE CASCADE,
   image VARCHAR(255)
 );

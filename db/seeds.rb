@@ -37,7 +37,7 @@ genre2 = Genre.new ({
 album1 = Album.new({
     "title" => "Whats the story morning glory",
     "artist_id" => artist1.id,
-    "year" => "1998",
+    "year" => "1995",
     "review" => "4 stars",
     "stock_level" => 4,
     "cost_price" => 7,
@@ -51,7 +51,7 @@ album1.save()
 album2 = Album.new({
   "title" => "Parklife",
   "artist_id" => artist2.id,
-   "year" => "1998",
+   "year" => "1995",
    "review" => "4 stars",
     "stock_level" => 12,
      "cost_price" => 5,
@@ -59,6 +59,19 @@ album2 = Album.new({
      "genre_id" => genre2.id,
      "image" => "https://upload.wikimedia.org/wikipedia/en/7/7d/BlurParklife.jpg"})
 album2.save()
+
+album3 = Album.new({
+    "title" => "Definitely Maybe",
+    "artist_id" => artist1.id,
+    "year" => "1994",
+    "review" => "3.5 stars",
+    "stock_level" => 10,
+    "cost_price" => 3,
+    "price" => 12,
+    "genre_id" => genre1.id,
+     "image" => "https://upload.wikimedia.org/wikipedia/en/d/d4/OasisDefinitelyMaybealbumcover.jpg"})
+
+album3.save()
 
 binding.pry()
 nil

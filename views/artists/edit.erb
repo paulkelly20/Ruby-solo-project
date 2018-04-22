@@ -1,0 +1,16 @@
+<h3>Update Artist</h3>
+<form action="/artists/<%= @artist.id %>" method="post">
+
+  <label for="name">Name:</label>
+  <input type="text" id="name" value = <%= @artist.name %> name="name">
+
+  <label for="type">Type:</label>
+  <input type="text" id="type" value = <%= @artist.type%> name="type">
+
+  <label for="about">About:</label>
+  <input type="text" id="about" value= <%= @artist.about %> name ="about">
+
+  <label for="image">Image-url:</label>
+  <input type="text" id="image" value= <%= @artist.image %> name ="image">
+  <input type="submit" value="Update">
+</form>

@@ -46,6 +46,17 @@ class Artist
     SqlRunner.run(sql,values)
   end
 
+  def find_albums_by_artists
+    sql = "SELECT albums.title FROM albums INNER JOIN artists ON albums.artist_id = artists.id WHERE artists.id = $1"
+    values = [@id]
+    albums = SqlRunner.run(sql,values)
+    result = Album.map_albums(albums)
+    new_array = result.map { |album| album.title }
+
+    end
+
+
+
 
   def self.delete_all()
     sql = "DELETE FROM artists"
@@ -53,8 +64,8 @@ class Artist
   end
 
   def self.keyword_search(word)
-    sql = "SELECT artists.* FROM artists WHERE name LIKE $1;"
-    values = ['%word%']
+    sql = "SELECT artists.* FROM artists WHERE name LIKE '%$1%';"
+    values = [word]
     result = SqlRunner.run(sql)
     return Artist.map_artists(result)
   end

@@ -1,7 +1,22 @@
-<% @artists.each do |artist| %>
-<p>Name: <%= artist.name %></p>
-<p>Type: <%= artist.type %></p>
-<p>About: <%= artist.about %></p>
-<p><img src="<%= artist.image %>" alt="band image"></p>
-<hr/>
-<% end %>
+
+
+
+<form action="/albums/new" method="get">
+  <input type="submit" value="New" />
+
+  <h2>List of Artists</h2>
+  <table class ="tables">
+  <tr>
+  <th>Name </th>
+  <th>Type </th>
+  <th>Albums: </th>
+
+  <tr/>
+  <% @artists.each do |artist| %>
+  <tr>
+  <td><a href="/artists/<%= artist.id %>"><%= artist.name %></a></td>
+  <td><%= artist.type %></td>
+  <td><%= artist.find_albums_by_artists %></td>
+
+  </tr>
+  <% end %>

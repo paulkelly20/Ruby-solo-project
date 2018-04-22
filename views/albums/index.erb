@@ -1,20 +1,25 @@
 <h2>List of Albums</h2>
-<table class= "albums">
+<table class= "tables">
 <tr>
 <th>Title </th>
 <th>Band </th>
 <th>Year </th>
+<th>Genre</th>
 <th>Stock Level</th>
-<th>Cost Price</th>
+<th>Review</th>
 <th>Price </th>
 <tr/>
 <% @albums.each do |album| %>
 <tr>
 <td><a href="/albums/<%= album.id %>"><%= album.title %></a></td>
-<td><%= album.find_album_artist_from_id.name %></td>
+<td><a href="/artists/<%= album.artist_id %>"><%= album.find_album_artist_from_id.name %></a></td>
 <td><%= album.year %></td>
-<td><%= album.stock_level %></td>
- <td>£<%= album.cost_price %></td>
+<td><a href="/genres/<%= album.genre_id %>"><%= album.find_album_genre_from_id.name %></a></td>
+<td><%= album.album_stock_level %></td>
+ <td><%= album.review %></td>
 <td>£<%= album.price %></td>
 </tr>
 <% end %>
+
+<form action="/albums/new" method="get">
+  <input type="submit" value="New" />

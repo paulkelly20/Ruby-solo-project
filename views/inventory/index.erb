@@ -1,0 +1,20 @@
+<h2>Stock list</h2>
+<table class= "tables">
+<tr>
+<th>Title </th>
+<th>Band </th>
+<th>Year </th>
+<th>Stock Level</th>
+<th>Cost Price</th>
+<th>Price </th>
+<tr/>
+<% @albums.each do |album| %>
+<tr>
+<td><a href="/albums/<%= album.id %>"><%= album.title %></a></td>
+<td><%= album.find_album_artist_from_id.name %></td>
+<td><%= album.year %></td>
+<td><%= album.stock_level %></td>
+ <td>£<%= album.cost_price %></td>
+<td>£<%= album.price %></td>
+</tr>
+<% end %>

@@ -63,7 +63,7 @@ class Album
   end
 
   def update()
-    sql = "UPDATE albums SET (title, artist_id, year, review, stock_level, cost_price, price, image) = ($1, $2, $3, $4, $5, $6, $7, $8, $9) WHERE id = $10"
+    sql = "UPDATE albums SET (title, artist_id, year, review, stock_level, cost_price, price, genre_id, image) = ($1, $2, $3, $4, $5, $6, $7, $8, $9) WHERE id = $10"
     values = [@title, @artist_id, @year, @review, @stock_level, @cost_price, @price, @genre_id, @image, @id]
     SqlRunner.run(sql, values)
   end
@@ -97,6 +97,10 @@ class Album
     return result[0]["markup"].to_i
   end
 
+  def album_markup_percentage()
+    result =  ((@price.to_f - @cost_price.to_f) / price) * 100
+     result.round(2)
+  end
 
 
 
