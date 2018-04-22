@@ -53,12 +53,10 @@ class Genre
   end
 
   def find_albums_by_genre
-    sql = "SELECT albums.title FROM albums INNER JOIN genres ON albums.genre_id = genres.id WHERE genres.id = $1"
+    sql = "SELECT albums.* FROM albums INNER JOIN genres ON albums.genre_id = genres.id WHERE genres.id = $1"
     values = [@id]
     genres = SqlRunner.run(sql,values)
     result = Album.map_albums(genres)
-    new_array = result.map { |album| album.title }
-
   end
 
 

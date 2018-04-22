@@ -16,7 +16,8 @@
   <tr>
   <td><a href="/artists/<%= artist.id %>"><%= artist.name %></a></td>
   <td><%= artist.type %></td>
-  <td><%= artist.find_albums_by_artists %></td>
+  <% artist.find_albums_by_artists.each do |album| %>
+  <td><a href="/albums/<%= album.id %>"><%= album.title%><% end %></td>
 
   </tr>
   <% end %>

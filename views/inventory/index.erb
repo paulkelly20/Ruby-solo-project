@@ -7,6 +7,7 @@
 <th>Stock Level</th>
 <th>Cost Price</th>
 <th>Price </th>
+<th>Markup </th>
 <tr/>
 <% @albums.each do |album| %>
 <tr>
@@ -16,5 +17,18 @@
 <td><%= album.stock_level %></td>
  <td>£<%= album.cost_price %></td>
 <td>£<%= album.price %></td>
+<td><%= album.album_markup_percentage %>%</td>
+
 </tr>
+
 <% end %>
+
+<table class = "tables">
+  <tr>
+    <th>Stock Value</th>
+  </tr>
+  <tr>
+    <td>£<%= Album.total_stock_value %></td>
+  </tr>
+
+</table>

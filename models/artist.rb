@@ -47,13 +47,11 @@ class Artist
   end
 
   def find_albums_by_artists
-    sql = "SELECT albums.title FROM albums INNER JOIN artists ON albums.artist_id = artists.id WHERE artists.id = $1"
+    sql = "SELECT albums.* FROM albums INNER JOIN artists ON albums.artist_id = artists.id WHERE artists.id = $1"
     values = [@id]
     albums = SqlRunner.run(sql,values)
     result = Album.map_albums(albums)
-    new_array = result.map { |album| album.title }
-
-    end
+  end
 
 
 
