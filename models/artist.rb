@@ -53,19 +53,16 @@ class Artist
     result = Album.map_albums(albums)
   end
 
-
-
-
   def self.delete_all()
     sql = "DELETE FROM artists"
     SqlRunner.run(sql)
   end
 
-  def self.keyword_search(word)
-    sql = "SELECT artists.* FROM artists WHERE name LIKE '%$1%';"
-    values = [word]
-    result = SqlRunner.run(sql)
-    return Artist.map_artists(result)
+  def self.keyword_search(name)
+    sql = "SELECT artists.* FROM artists WHERE name LIKE $1;"
+    values = [name.capitalize]
+    result = SqlRunner.run(sql,values)
+    return Artist.map_artists(result)[0]
   end
 
   def self.map_artists(artists)

@@ -1,13 +1,14 @@
 <h2>Artist</h2>
 
 <p>Name: <%= @artist.name%></p>
+<p><img class = "artistphotos" src="<%= @artist.image%>"></p>
 <p>Type: <%= @artist.type%></p>
 <p>About: <%= @artist.about%></p>
-<p>Url: <img src="<%= @artist.image%>"></p>
+
 <form action="/artists/<%= @artist.id %>/edit" method="get">
-<input type="submit" value="Update">
+<input class ="buttons" type="submit" value="Update">
 </form>
 
 <form action="/artists/<%= @artist.id %>/delete" method="post">
-<input type="submit" value="delete">
+<input class ="buttons"type="submit" value="delete">
 </form>

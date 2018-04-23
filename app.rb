@@ -8,8 +8,3 @@ require_relative('controllers/invertory_controller')
 get "/" do
  erb (:index)
 end
-
-get "/results" do
-  @artist = Artist.keyword_search(params[:id])
-  erb (:results)
-end
