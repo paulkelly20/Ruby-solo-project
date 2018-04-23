@@ -10,12 +10,18 @@
 </head>
 
 <body>
-  <div class="banner">
-    <a href = "/"><h1>Record Planet</h1></a>
+  <header>
+    <div class="banner">
+    <a class = "logo" href = "/"><h1>Record Planet</h1></a>
+    <img class = "mainpageimage"src="/images/blur.jpg" alt="Record shop">
+    </div >
+  </header>
 
 
-  </div class = "sidebar" >
-  <nav>
+  <main>
+
+  <div>
+  <nav class = "sidebar">
     <ul>
     <li><a href="/artists">Artists</a></li>
     <li><a href="/albums">Albums</a></li>
@@ -23,9 +29,12 @@
     <li><a href="/inventory">Inventory</a>  </li>
     </ul>
   </nav>
-<div class = "mainpagedivider" style >
-  <img class = "mainpageimage"src="/images/blur.jpg" alt="Record shop">
-  <%= yield %>
-</div>
+ </div>
+ <div class = "mainpageslot"><%= yield %>
+
+  </div>
+  </main>
+
+
 </body>
 </html>

@@ -22,6 +22,9 @@ end
 
 get "/genres/:id" do
   @genre = Genre.find(params[:id])
+
+  @albums = @genre.find_albums_by_genre()
+  
   erb(:"genre/show")
 end
 

@@ -13,16 +13,18 @@ body {
   justify-content: center;
   align-items: flex-end;
 }
-.searchbar {
-    float: inherit;
-    display: inline-block;
+#searchbar {
+  width: 600px;
+  height: 35px;
+  border:0.5px solid black;
 
-    padding: 0px 50px 100px 500px;
-    width: 300px;
-    height: 100px;
 
 }
 
+.form {
+  display: flex;
+
+}
 
 
 h1 {
@@ -48,6 +50,7 @@ nav {
 
 nav ul li {
   margin-bottom: 15px;
+  display: inline;
 
 }
 
@@ -61,8 +64,6 @@ nav ul li {
    align-items: center;
    margin-left: auto;
    margin-right: auto;
-
-
 }
 
 .tables th {
@@ -79,11 +80,17 @@ nav ul li {
 
   width: 150px;
   height: 200px;
-  display: inline-block;
-  margin-left: 120px;
+
+  margin-left:0px;
   border: 2px solid blue;
-  align-items: center;
+
 }
+
+.mainpageslot {
+  margin-left: 60px;
+}
+
+
 
 .buttons {
   border:2px solid black;
@@ -111,13 +118,22 @@ margin-left: 80px;
   width: 250px;
 height: 250px;
 display: inline-block;
-margin-left: 150px;
+margin-left: 100px;
 }
 
-.mainpagedivider{
-  margin-left: 25%;
+.logo {
+  margin-left: 100px;
+}
+
+main {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size:  12px;
+
 }
 
 .sidebar {
-  width: 25% ;
+
+  display: inline-block;
+  align-content: stretch;
+  margin: 30px;
 }

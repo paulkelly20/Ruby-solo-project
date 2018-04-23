@@ -5,6 +5,27 @@
 <p>Type: <%= @artist.type%></p>
 <p>About: <%= @artist.about%></p>
 
+<table class= "tables">
+<tr>
+<th>Title </th>
+<th>Year </th>
+<th>Genre</th>
+<th>Stock Level</th>
+<th>Review</th>
+<th>Price </th>
+<tr/>
+<% @albums.each do |album| %>
+<tr>
+<td><a href="/albums/<%= album.id %>"><%= album.title %></a></td>
+<td><%= album.year %></td>
+<td><a href="/genres/<%= album.genre_id %>"><%= album.find_album_genre_from_id.name %></a></td>
+<td><%= album.album_stock_level %></td>
+ <td><%= album.review %></td>
+<td>£<%= album.price %></td>
+</tr>
+<% end %>
+
+
 <form action="/artists/<%= @artist.id %>/edit" method="get">
 <input class ="buttons" type="submit" value="Update">
 </form>
