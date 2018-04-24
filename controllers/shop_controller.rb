@@ -16,7 +16,7 @@ post "/sale/buy/:id" do
  new_album = Album.find(params[:id])
  shop = Shop.all
  shop.album_sold_till_increases(new_album)
- redirect to "/"
+ redirect to "/sale"
 
 
 end
