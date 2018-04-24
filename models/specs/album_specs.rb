@@ -23,5 +23,10 @@ class AlbumTest < MiniTest::Test
     assert_equal("High", @album2.album_stock_level)
   end
 
+  def test_sell_album()
+    @album1.sell_album()
+    assert_equal(3, @album1.stock_level)
+  end
+
 
 end

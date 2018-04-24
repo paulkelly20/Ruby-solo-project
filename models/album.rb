@@ -15,12 +15,13 @@ class Album
     @cost_price = options["cost_price"].to_i
     @price = options["price"].to_i
     @genre_id = options["genre_id"].to_i
+    @shop_id = options["shop_id"].to_i
     @image = options["image"]
   end
 
   def save
-    sql = "INSERT INTO albums (title, artist_id, year, review, stock_level, cost_price, price, genre_id, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id;"
-    values = [@title, @artist_id, @year, @review, @stock_level, @cost_price, @price, @genre_id, @image]
+    sql = "INSERT INTO albums (title, artist_id, year, review, stock_level, cost_price, price, genre_id,shop_id, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING id;"
+    values = [@title, @artist_id, @year, @review, @stock_level, @cost_price, @price, @genre_id,@shop_id, @image]
     result = SqlRunner.run(sql, values)
     @id = result.first["id"].to_i
   end
@@ -63,8 +64,8 @@ class Album
   end
 
   def update()
-    sql = "UPDATE albums SET (title, artist_id, year, review, stock_level, cost_price, price, genre_id, image) = ($1, $2, $3, $4, $5, $6, $7, $8, $9) WHERE id = $10"
-    values = [@title, @artist_id, @year, @review, @stock_level, @cost_price, @price, @genre_id, @image, @id]
+    sql = "UPDATE albums SET (title, artist_id, year, review, stock_level, cost_price, price, genre_id, shop_id, image) = ($1, $2, $3, $4, $5, $6, $7, $8, $9,$10) WHERE id = $11"
+    values = [@title, @artist_id, @year, @review, @stock_level, @cost_price, @price, @genre_id, @shop_id, @image, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -102,6 +103,9 @@ class Album
      result.round(2)
   end
 
-
+  def sell_album()
+    @stock_level -= 1
+    update()
+  end
 
 end

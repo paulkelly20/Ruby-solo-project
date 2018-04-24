@@ -8,7 +8,8 @@
   <select id="artist_id"  name="artist_id">
     <% @artists.each do |artist| %>
     <option value="<%= artist.id%>"><%=artist.name%></option>
-  <% end %>
+    <% end %>
+  </select>
 
   <label for="year">Year:</label>
   <input type="text"  id ="year" name="year">
@@ -29,7 +30,8 @@
   <select id="genre_id"  name="genre_id">
     <% @genres.each do |genre| %>
     <option value="<%= genre.id%>"><%=genre.name%></option>
-  <% end %>
+    <% end %>
+  </select>
 
   <label for="image">Image-url:</label>
   <input type="text" id ="image" name="image">

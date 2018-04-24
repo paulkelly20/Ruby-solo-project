@@ -1,5 +1,6 @@
 DROP TABLE albums ;
 DROP TABLE genres ;
+DROP TABLE shop;
 DROP TABLE artists ;
 
 
@@ -17,6 +18,11 @@ CREATE TABLE genres (
   origin VARCHAR(255)
 );
 
+CREATE TABLE shop (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255),
+  till INT
+);
 
 
 CREATE TABLE albums (
@@ -29,5 +35,6 @@ CREATE TABLE albums (
   cost_price INT,
   price INT,
   genre_id INT REFERENCES genres(id) ON DELETE CASCADE,
+  shop_id INT REFERENCES shop(id) ON DELETE CASCADE,
   image VARCHAR(255)
 );

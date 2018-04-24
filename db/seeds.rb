@@ -1,11 +1,13 @@
 require_relative("../models/album.rb")
 require_relative("../models/artist.rb")
 require_relative("../models/genre.rb")
+require_relative("../models/shop.rb")
 require("pry-byebug")
 
 Album.delete_all()
 Genre.delete_all()
 Artist.delete_all()
+Shop.delete_all()
 
 artist1 =  Artist.new({
   "name" => "Oasis",
@@ -34,6 +36,14 @@ genre2 = Genre.new ({
   genre1.save()
   genre2.save()
 
+  shop1 = Shop.new ({
+    "name" => "Record Planet",
+    "till" => 100
+    })
+
+    shop1.save()
+
+
 album1 = Album.new({
     "title" => "Whats the story morning glory",
     "artist_id" => artist1.id,
@@ -43,6 +53,7 @@ album1 = Album.new({
     "cost_price" => 7,
     "price" => 12,
     "genre_id" => genre1.id,
+    "shop_id" => shop1.id,
      "image" => "https://upload.wikimedia.org/wikipedia/en/b/b1/Oasis_-_%28What%27s_The_Story%29_Morning_Glory_album_cover.jpg"})
 
 album1.save()
@@ -57,6 +68,7 @@ album2 = Album.new({
      "cost_price" => 5,
      "price" => 9,
      "genre_id" => genre2.id,
+      "shop_id" => shop1.id,
      "image" => "https://upload.wikimedia.org/wikipedia/en/7/7d/BlurParklife.jpg"})
 album2.save()
 
@@ -69,6 +81,7 @@ album3 = Album.new({
     "cost_price" => 3,
     "price" => 12,
     "genre_id" => genre1.id,
+    "shop_id" => shop1.id,
      "image" => "https://upload.wikimedia.org/wikipedia/en/d/d4/OasisDefinitelyMaybealbumcover.jpg"})
 
 album3.save()
