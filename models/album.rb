@@ -27,7 +27,7 @@ class Album
   end
 
   def self.all()
-    sql = "SELECT * FROM albums"
+    sql = "SELECT * FROM albums ORDER BY title ASC"
     result = SqlRunner.run(sql)
     return Album.map_albums(result)
   end
