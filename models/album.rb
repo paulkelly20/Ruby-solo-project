@@ -8,13 +8,13 @@ class Album
   def initialize(options)
     @id = options["id"].to_i
     @title = options["title"]
-    @artist_id = options["artist_id"]
+    @artist_id = options["artist_id"].to_i
     @year = options["year"]
     @review = options["review"]
     @stock_level = options["stock_level"].to_i
     @cost_price = options["cost_price"].to_i
     @price = options["price"].to_i
-    @genre_id = options["genre_id"]
+    @genre_id = options["genre_id"].to_i
     @image = options["image"]
   end
 

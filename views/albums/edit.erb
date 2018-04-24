@@ -9,11 +9,12 @@
   <label for="artist_id">Artist:</label>
   <select id="artist_id"  name="artist_id">
     <% @artists.each do |artist| %>
-    <option value="<%= artist.id%>"><%=artist.name%></option>
-  <% end %>
+      <option value="<%= artist.id%>" <%= @album.artist_id == artist.id ? "selected" : "" %> ><%= artist.name %></option>
+    <% end %>
+  </select>
 
   <label for="year">Year:</label>
-  <input type="text"  id ="year" name="year" value = <%= @album.year %> name="year">>
+  <input type="text"  id ="year" name="year" value = <%= @album.year %> name="year">
 
   <label for="review">Review:</label>
   <input type="text"  id ="review" name="review" value = <%= @album.review %> name="review">
@@ -30,8 +31,9 @@
   <label for="genre_id">Genre:</label>
   <select id="genre_id"  name="genre_id">
     <% @genres.each do |genre| %>
-    <option value="<%= genre.id%>"><%=genre.name%></option>
+    <option value="<%= genre.id %>" <%= "selected" if @album.genre_id == genre.id %>><%=genre.name%></option>
   <% end %>
+</select>
 
   <label for="image">Image-url:</label>
   <input type="text" id ="image" name="image" value = <%= @album.image %> name="image">
