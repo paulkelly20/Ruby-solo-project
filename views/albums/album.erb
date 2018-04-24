@@ -1,5 +1,14 @@
 <h2>Album</h2>
 
+<form action="/albums/<%= @album.id %>/update" method="get">
+<input class = "buttons" type="submit" value="Update">
+</form>
+
+<form action="/albums/<%= @album.id %>/delete" method="post">
+<input class = "buttons" type="submit" value="delete">
+</form>
+
+
 <p><img class = "albumphotos" src="<%= @album.image %>" alt="album cover"></p>
 <p>Title: <%= @album.title %></p>
 <p>Band: <a href="/artists/<%= @album.artist_id %>"><%= @album.find_album_artist_from_id.name%></a></p>
@@ -8,11 +17,3 @@
 <p>review: <%= @album.review %></p>
 <p>Stock Level:<%=@album.album_stock_level%></p>
 <p>Price: <%= @album.price %></p>
-
-<form action="/albums/<%= @album.id %>/update" method="get">
-<input class = "buttons" type="submit" value="Update">
-</form>
-
-<form action="/albums/<%= @album.id %>/delete" method="post">
-<input class = "buttons" type="submit" value="delete">
-</form>
