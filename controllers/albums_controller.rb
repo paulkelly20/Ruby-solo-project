@@ -15,6 +15,7 @@ end
 get "/albums/new" do
   @artists = Artist.all()
   @genres = Genre.all()
+  @shop = Shop.all()
   erb(:"albums/new")
 end
 

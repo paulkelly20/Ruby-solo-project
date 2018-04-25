@@ -31,7 +31,7 @@ get "/genres/:id/edit" do
   erb(:"genre/edit")
 end
 
-post "/genre/:id" do
+post "/genres/:id" do
   new_genre = Genre.new(params)
   new_genre.update()
   redirect to "/genres"
