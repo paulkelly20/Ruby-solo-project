@@ -26,7 +26,7 @@ end
 get "/artists/results" do
   @artist = Artist.keyword_search(params['search'])
   @albums = @artist.find_albums_by_artists() if @artist
-  if @albums == nil
+  if @artist == nil
   redirect to "/artists"
   else
   erb(:"artists/show")

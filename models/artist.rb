@@ -59,7 +59,7 @@ class Artist
   end
 
   def self.keyword_search(name)
-    sql = "SELECT artists.* FROM artists WHERE name LIKE $1;"
+    sql = "SELECT artists.* FROM artists WHERE name LIKE $1 ;"
     values = [name.capitalize]
     result = SqlRunner.run(sql,values)
     return Artist.map_artists(result)[0]
