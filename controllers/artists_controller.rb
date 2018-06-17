@@ -27,12 +27,10 @@ get "/artists/results" do
   @artist = Artist.keyword_search(params['search'])
   @albums = @artist.find_albums_by_artists() if @artist
   if @artist == nil
-  redirect to "/artists"
+    redirect to "/artists"
   else
-  erb(:"artists/show")
-end
-
-
+    erb(:"artists/show")
+  end
 end
 
 get "/artists/:id" do
@@ -53,7 +51,7 @@ post "/artists/:id" do
 end
 
 post "/artists/:id/delete" do
- @artist = Artist.find(params[:id])
- @artist.delete_by_id()
- redirect to "/artists"
+  @artist = Artist.find(params[:id])
+  @artist.delete_by_id()
+  redirect to "/artists"
 end

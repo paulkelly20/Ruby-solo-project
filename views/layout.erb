@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" type="text/css" href="/style.css">
+
   <title>Record Planet</title>
-  <link rel="icon" href="/images/music.jpg" />
+  <link rel="icon" href="/images/favicon.ico" />
 </head>
 
 <body>
@@ -15,24 +16,23 @@
     <a class = "logo" href = "/"><h1>Record Planet</h1></a>
     <img class = "mainpageimage"src="/images/blur.jpg" alt="Record shop">
     </div >
+
+    <div>
+      <nav >
+        <ul class = "nav-list">
+        <li><a href="/artists">Artists</a></li>
+        <li><a href="/albums">Albums</a></li>
+        <li><a href="/genres">Genres</a>  </li>
+        <li><a href="/inventory">Inventory</a>  </li>
+        <li><a href="/sale">Till</a>  </li>
+        </ul>
+      </nav>
+     </div>
   </header>
 
 
   <main>
-
-  <div>
-  <nav class = "sidebar">
-    <ul>
-    <li><a href="/artists">Artists</a></li>
-    <li><a href="/albums">Albums</a></li>
-    <li><a href="/genres">Genres</a>  </li>
-    <li><a href="/inventory">Inventory</a>  </li>
-    <li><a href="/sale">Till</a>  </li>
-    </ul>
-  </nav>
- </div>
  <div class = "mainpageslot"><%= yield %>
-
   </div>
   </main>
 

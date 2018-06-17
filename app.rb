@@ -8,4 +8,5 @@ require_relative('controllers/shop_controller')
 
 get "/" do
  erb (:index)
+
 end

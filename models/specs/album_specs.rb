@@ -10,12 +10,12 @@ class AlbumTest < MiniTest::Test
   end
 
   def test_album()
-    assert_equal("Whats the story morning glory", @album1.title)
-    assert_equal("1998", @album1.year)
-    assert_equal("4 stars", @album1.review)
-    assert_equal(4, @album1.stock_level)
-    assert_equal(5, @album1.cost_price)
-    assert_equal(9, @album1.price)
+    assert_equal("Whats the story morning glory", album1.title)
+    assert_equal("1998", album1.year)
+    assert_equal("4 stars", album1.review)
+    assert_equal(4, album1.stock_level)
+    assert_equal(5, album1.cost_price)
+    assert_equal(9, album1.price)
   end
 
   def test_stock_level()

@@ -49,9 +49,15 @@
   </div>
 
   <div>
+  <select id="shop_id"  name="shop_id">
+    <option value="<%= @shop.id%>"><%= @shop.name%></option>
+  </select>
+  </div>
+
+  <div>
   <label for="image">Image-url:</label>
   <input type="text" id ="image" name="image" value = <%= @album.image %> name="image">
   <input class = "buttons" type="submit" value="Update Album">
   </div>
-  
+
 </form>
