@@ -1,4 +1,4 @@
-<h2>Album</h2>
+<h1>Album</h1>
 
 <form action="/albums/<%= @album.id %>/update" method="get">
 <input class = "buttons" type="submit" value="Update">
@@ -8,12 +8,13 @@
 <input class = "buttons" type="submit" value="delete">
 </form>
 
-
-<p><img class = "albumphotos" src="<%= @album.image %>" alt="album cover"></p>
-<p>Title: <%= @album.title %></p>
-<p>Band: <a href="/artists/<%= @album.artist_id %>"><%= @album.find_album_artist_from_id.name%></a></p>
-<p>Genre:<a href="/genres/<%= @album.genre_id %>"> <%= @album.find_album_genre_from_id.name%></a></p>
-<p>Year: <%= @album.year %></p>
-<p>review: <%= @album.review %></p>
-<p>Stock Level:<%=@album.album_stock_level%></p>
-<p>Price: <%= @album.price %></p>
+<div class="show">
+<img class = "photos" src="<%= @album.image %>" alt="album cover">
+<h2>Title: <%= @album.title %></h2>
+<h3>Band: <a href="/artists/<%= @album.artist_id %>"><%= @album.find_album_artist_from_id.name%></a></h3>
+<h3>Genre:<a href="/genres/<%= @album.genre_id %>"> <%= @album.find_album_genre_from_id.name%></a></h3>
+<h3>Year: <%= @album.year %></h3>
+<h3>review: <%= @album.review %></h3>
+<h3>Stock Level: <%=@album.album_stock_level%></h3>
+<h3>Price: <%= @album.price %></h3>
+</div>

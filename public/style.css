@@ -21,6 +21,11 @@ body {
   color: #ffffff;
 }
 
+div#search-div{
+  padding-top:  25px;
+  padding-bottom: 25px;
+}
+
 #searchbar {
   width: 600px;
   height: 35px;
@@ -28,6 +33,28 @@ body {
   margin-left: 250px;
 
 }
+
+img.photos{
+  width:250px;
+  margin-left:40%;
+
+}
+
+div.show{
+  padding: 0;
+
+}
+
+div#new-image {
+
+   content:url(images/main.jpg);
+   border-radius: 20px;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: 80%;
+   height: 400px;
+}​
 
 .form {
   display: flex;
@@ -45,6 +72,9 @@ h1 {
 }
 
 h2 {
+  text-align: center;
+}
+h3 {
   text-align: center;
 }
 
@@ -135,10 +165,12 @@ margin-left: 80px;
 
 .mainpageimage {
   width: 250px;
-height: 250px;
-display: inline-block;
-margin-left: 100px;
+  height: 250px;
+  display: inline-block;
+  margin-left: 100px;
 }
+
+
 
 .logo {
   margin-left: 100px;
@@ -149,6 +181,7 @@ main {
   font-size:  12px;
 
 }
+
 
 .sidebar {
 

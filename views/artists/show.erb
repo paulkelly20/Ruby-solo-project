@@ -1,5 +1,6 @@
 <h2>Artist</h2>
 
+<div class="edit-buttons">
 <form action="/artists/<%= @artist.id %>/edit" method="get">
 <input class ="buttons" type="submit" value="Update">
 </form>
@@ -7,12 +8,13 @@
 <form action="/artists/<%= @artist.id %>/delete" method="post">
 <input class ="buttons"type="submit" value="delete">
 </form>
-
-<p>Name: <%= @artist.name%></p>
-<p><img class = "artistphotos" src="<%= @artist.image%>"></p>
-<p>Type: <%= @artist.type%></p>
-<p>About: <%= @artist.about%></p>
-
+</div>
+<div class="show">
+<h1>Name: <%= @artist.name%></h1>
+<img class="photos" src="<%= @artist.image%>">
+<h2>Type: <%= @artist.type%></h2>
+<h1>About: <%= @artist.about%></h2>
+</div>
 <table class= "tables">
 <tr>
 <th>Title </th>
@@ -22,6 +24,7 @@
 <th>Review</th>
 <th>Price </th>
 <tr/>
+
 <% @albums.each do |album| %>
 <tr>
 <td><a href="/albums/<%= album.id %>"><%= album.title %></a></td>
