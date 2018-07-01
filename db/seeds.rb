@@ -2,7 +2,6 @@ require_relative("../models/album.rb")
 require_relative("../models/artist.rb")
 require_relative("../models/genre.rb")
 require_relative("../models/shop.rb")
-require("pry-byebug")
 
 Album.delete_all()
 Genre.delete_all()
@@ -85,6 +84,3 @@ album3 = Album.new({
      "image" => "https://upload.wikimedia.org/wikipedia/en/d/d4/OasisDefinitelyMaybealbumcover.jpg"})
 
 album3.save()
-
-binding.pry()
-nil

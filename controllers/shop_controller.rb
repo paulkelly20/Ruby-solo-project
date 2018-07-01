@@ -1,6 +1,5 @@
 require('sinatra')
-require("sinatra/contrib/all")
-require("pry-byebug")
+require('sinatra/contrib/all') if development?
 require_relative("../models/shop.rb")
 require_relative("../models/album.rb")
 require_relative("../models/artist.rb")
