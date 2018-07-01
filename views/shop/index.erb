@@ -13,7 +13,7 @@
 <td><a href="/albums/<%= album.id %>"><%= album.title %></a></td>
 <td><a href="/artists/<%= album.artist_id %>"><%= album.find_album_artist_from_id.name %></a></td>
 <td>£<%= album.price %></td>
-<td><form action="/sale/buy/<%= album.id %>" method="post"><input type="submit" value ="Buy"></form></td>
+<td><form action="/sale/buy/<%= album.id %>" method="post"><input type="submit" value ="Sell"></form></td>
 
 </tr>
 <% end %>

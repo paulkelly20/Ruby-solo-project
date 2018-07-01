@@ -11,9 +11,17 @@
 <tr>
 <td><a href="/genres/<%= genre.id %>"><%= genre.name %></td>
 <td><%= genre.origin %></td>
-<% genre.find_albums_by_genre.each do |album| %>
-<td><a href="/albums/<%= album.id %>"><%= album.title%><% end %></td>
+
+<td>
+    <select>
+      <% genre.find_albums_by_genre.each do |album| %>
+      <option><%= album.title%><% end %></option>
+    </select>
+    </td>
 </tr>
 <% end %>
 <form action="/genres/new" method="get">
   <input class ="buttons" type="submit" value="New" />
+
+
+  <td>

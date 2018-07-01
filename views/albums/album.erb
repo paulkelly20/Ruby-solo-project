@@ -1,6 +1,11 @@
 <h1>Album</h1>
 
+<form action="/albums/<%= @album.id %>/update" method="get">
+<input class = "buttons" type="submit" value="Update">
+</form>
 
+<form action="/albums/<%= @album.id %>/delete" method="post">
+<input class = "buttons" type="submit" value="delete">
 
 <div class="show">
 <img class = "photos" src="<%= @album.image %>" alt="album cover">
@@ -11,11 +16,6 @@
 <h3>review: <%= @album.review %></h3>
 <h3>Stock Level: <%=@album.album_stock_level%></h3>
 <h3>Price: <%= @album.price %></h3>
-<form action="/albums/<%= @album.id %>/update" method="get">
-<input class = "buttons" type="submit" value="Update">
-</form>
 
-<form action="/albums/<%= @album.id %>/delete" method="post">
-<input class = "buttons" type="submit" value="delete">
 </form>
 </div>
