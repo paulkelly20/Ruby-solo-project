@@ -1,5 +1,7 @@
 Record Store
 
+![alt text](https://raw.githubusercontent.com/paulkelly20/Ruby-solo-project/master/.png)
+
 Heroku Deployment https://music-shop-pk.herokuapp.com/
 
 The owner of a Record Store wants an app which will help to keep on top of the store inventory. This is not an app that customers will see, but will be used to check stock levels and see what needs to be ordered soon.
