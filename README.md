@@ -1,6 +1,6 @@
 Record Store
 
-!(images/frontPage.jpg)
+![My Image](images/frontPage.png?raw=1)
 
 Heroku Deployment https://music-shop-pk.herokuapp.com/
 
