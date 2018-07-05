@@ -1,6 +1,6 @@
 Record Store
 
-![alt text](https://raw.githubusercontent.com/paulkelly20/Ruby-solo-project/master/frontPage.png)
+![Scheme](images/frontPage.jpg)
 
 Heroku Deployment https://music-shop-pk.herokuapp.com/
 
